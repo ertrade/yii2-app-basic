@@ -1,0 +1,10 @@
+# Suite for functional (integration) tests.
+#
+# Emulate web requests and make application process them.
+
+class_name: TestLord
+
+modules:
+    enabled:
+        - Filesystem
+        - Yii2

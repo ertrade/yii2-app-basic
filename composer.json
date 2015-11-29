@@ -1,0 +1,29 @@
+{
+    "name": "ertrade/yii2-app-basic",
+    "description": "Yii 2 basic project template",
+    "type": "project",
+    "keywords": ["phpdotenv", "project template", "twig", "yii2"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "vlucas/phpdotenv": "^2.1",
+        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2-twig": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-faker": "*"
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "bower-asset-library": "vendor/bower",
+            "npm-asset-library": "vendor/npm"
+        }
+    }
+}

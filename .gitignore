@@ -1,0 +1,6 @@
+.*.env
+.env
+codeception.yml
+tests/helpers/_generated/
+tests/output/
+vendor/

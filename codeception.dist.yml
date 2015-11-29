@@ -1,0 +1,30 @@
+actor: Lord
+
+paths:
+    tests: tests
+    data: tests/data
+    helpers: tests/helpers
+    log: tests/output
+
+settings:
+    bootstrap: bootstrap.php
+    memory_limit: 512M
+    colors: true
+
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+
+config:
+    # Path to entry script relative to the project directory.
+    test_entry_file: web/index-test.php
+    # Entry script URL for functional and acceptance tests.
+    test_entry_url: http://localhost:8080/index-test.php
+
+modules:
+    config:
+        PhpBrowser:
+            # Actual entry point without path info.
+            url: http://localhost:8080
+        Yii2:
+            configFile: tests/config/functional.php

@@ -1,0 +1,47 @@
+{{ use('yii/widgets/Breadcrumbs') }}
+{{ register_asset_bundle('app/assets/AppAsset') }}
+
+{{ begin_page() }}
+<!DOCTYPE html>
+<html lang="{{ app.language }}">
+<head>
+  <meta charset="{{ app.charset }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ html.csrfMetaTags()|raw }}
+  <title>{{ this.title }}</title>
+  {{ head() }}
+</head>
+<body>
+  {{ begin_body() }}
+  <div class="wrap">
+    {{ nav_bar_begin({
+      brandLabel: 'My Company',
+      brandUrl: app.homeUrl,
+      options: {class: 'navbar-inverse navbar-fixed-top'}
+    }) }}
+    {{ nav_widget({
+      options: {class: 'navbar-nav navbar-right'},
+      items: [
+        {label: 'Home', url: ['site/index']},
+        {label: 'About', url: ['site/about']},
+        {label: 'Contact', url: ['site/contact']},
+      ]
+    }) }}
+    {{ nav_bar_end() }}
+
+    <div class="container">
+      {{ breadcrumbs_widget({links: this.params.breadcrumbs|default([])}) }}
+      {{ content|raw }}
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="pull-left">&copy; My Company {{ 'now'|date('Y') }}</div>
+      <div class="pull-right">{{ yii.powered()|raw }}</div>
+    </div>
+  </footer>
+  {{ end_body() }}
+</body>
+</html>
+{{ end_page() }}

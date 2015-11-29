@@ -1,0 +1,7 @@
+# Suite for unit (internal) tests.
+
+class_name: CodeLord
+
+modules:
+    enabled:
+        - Asserts
