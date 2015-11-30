@@ -20,6 +20,12 @@
     "config": {
         "process-timeout": 1800
     },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php -r \"copy('.env.example', '.test.env');\""
+        ]
+    },
     "extra": {
         "asset-installer-paths": {
             "bower-asset-library": "vendor/bower",
