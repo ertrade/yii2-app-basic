@@ -39,7 +39,7 @@ class KeyController extends Controller
      *
      * @return string
      *
-     * @throw \yii\base\Exception
+     * @throws \yii\base\Exception
      */
     protected static function getRandomBytes($length)
     {
