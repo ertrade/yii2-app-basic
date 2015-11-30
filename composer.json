@@ -22,8 +22,10 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\"",
-            "php -r \"copy('.env.example', '.test.env');\""
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php yii key/generate"
         ]
     },
     "extra": {
