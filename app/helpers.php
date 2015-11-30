@@ -24,8 +24,8 @@ if (!function_exists('env')) {
                 return;
         }
 
-        if (preg_match('/^"(.*)"$/', $value, $matches)) {
-            return $matches[1];
+        if (strpos($value, '"') === 0 && substr($value, -1) === '"') {
+            return substr($value, 1, -1);
         }
 
         return $value;
