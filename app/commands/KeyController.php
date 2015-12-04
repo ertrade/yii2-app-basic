@@ -18,10 +18,12 @@ class KeyController extends Controller
 
     /**
      * Set cookie validation key.
+     *
+     * @param int $length Key length
      */
-    public function actionGenerate()
+    public function actionGenerate($length = 32)
     {
-        $key = static::getRandomString();
+        $key = static::getRandomString($length);
 
         $files = glob(PROJECT_PATH.'/{.env,.*.env}', GLOB_BRACE);
         foreach ($files as $file) {
@@ -60,7 +62,7 @@ class KeyController extends Controller
      *
      * @return string
      */
-    protected static function getRandomString($length = 32)
+    protected static function getRandomString($length)
     {
         $str = '';
 
