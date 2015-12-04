@@ -45,6 +45,6 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        return $this->render('about.twig', ['server' => $_SERVER]);
+        return $this->render('about.twig');
     }
 }
