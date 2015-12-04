@@ -24,7 +24,8 @@ if (!function_exists('env')) {
                 return;
         }
 
-        if (strpos($value, '"') === 0 && substr($value, -1) === '"') {
+        $len = strlen($value);
+        if ($len > 1 && $value[0] == '"' && $value[$len - 1] == '"') {
             return substr($value, 1, -1);
         }
 
