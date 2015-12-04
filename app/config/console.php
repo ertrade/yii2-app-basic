@@ -28,6 +28,10 @@ $config = [
         'fixture' => [
             'class' => 'yii\faker\FixtureController',
         ],
+        'serve' => [
+            'class' => 'yii\console\controllers\ServeController',
+            'docroot' => PROJECT_PATH.'/web',
+        ],
     ],
     'controllerNamespace' => 'app\commands',
     'params' => $params,
