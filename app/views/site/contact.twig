@@ -27,7 +27,7 @@
       <div class="col-lg-5">
         {% set form = active_form_begin({id: 'contact-form'}) %}
           {% autoescape false %}
-            {{ form.field(model, 'name') }}
+            {{ form.field(model, 'name').textInput({autofocus: true}) }}
             {{ form.field(model, 'email') }}
             {{ form.field(model, 'subject') }}
             {{ form.field(model, 'body').textArea({rows: 6}) }}
