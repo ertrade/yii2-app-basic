@@ -16,10 +16,13 @@ extensions:
         - Codeception\Extension\RunFailed
 
 config:
-    # Path to entry script relative to the project directory.
-    test_entry_file: web/index-test.php
+    # File to load environment variables from.  It should be
+    # located in the project root.
+    environment_file: .test.env
+    # Path to entry script relative to the project root.
+    test_entry_file: web/index.php
     # Entry script URL for functional and acceptance tests.
-    test_entry_url: http://localhost:8080/index-test.php
+    test_entry_url: http://localhost:8080/index.php
 
 modules:
     config:

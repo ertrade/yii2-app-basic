@@ -1,12 +1,12 @@
 <?php
 
-define('YII_ENV', 'test');
-require __DIR__.'/../bootstrap.php';
-
 $config = Codeception\Configuration::config()['config'];
 
+putenv('ENV_FILE='.$config['environment_file']);
+require __DIR__.'/../bootstrap.php';
+
 $url = parse_url($config['test_entry_url']);
-$file = Codeception\Configuration::projectDir().$config['test_entry_file'];
+$file = PROJECT_PATH.'/'.$config['test_entry_file'];
 
 define('YII_TEST_ENTRY_FILE', $file);
 define('YII_TEST_ENTRY_URL', $url['path']);
