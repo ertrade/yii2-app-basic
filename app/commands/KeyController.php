@@ -2,6 +2,7 @@
 
 namespace app\commands;
 
+use Yii;
 use yii\base\Exception;
 use yii\console\Controller;
 use yii\helpers\Console;
@@ -23,7 +24,7 @@ class KeyController extends Controller
      */
     public function actionGenerate($length = 32)
     {
-        $key = static::getRandomString($length);
+        $key = Yii::$app->getSecurity()->generateRandomString($length);
 
         $files = glob(PROJECT_PATH.'/{.env,.*.env}', GLOB_BRACE);
         foreach ($files as $file) {
@@ -34,46 +35,6 @@ class KeyController extends Controller
             'Cookie validation key set succesfully.'.PHP_EOL,
             Console::FG_GREEN
         );
-    }
-
-    /**
-     * Generate a pseudo-random string of bytes.
-     *
-     * @return string
-     *
-     * @throws \yii\base\Exception
-     */
-    protected static function getRandomBytes($length)
-    {
-        if (!function_exists('openssl_random_pseudo_bytes')) {
-            throw new Exception('OpenSSL extension is required.');
-        }
-
-        $bytes = openssl_random_pseudo_bytes($length, $strong);
-        if (false === $bytes || false === $strong) {
-            throw new Exception('Unable to generate random string.');
-        }
-
-        return $bytes;
-    }
-
-    /**
-     * Generate a pseudo-random alpha-numeric string.
-     *
-     * @return string
-     */
-    protected static function getRandomString($length)
-    {
-        $str = '';
-
-        while (($len = strlen($str)) < $length) {
-            $size = $length - $len;
-            $data = base64_encode(static::getRandomBytes($size));
-
-            $str .= substr(str_replace(['+', '/', '='], '', $data), 0, $size);
-        }
-
-        return $str;
     }
 
     /**
